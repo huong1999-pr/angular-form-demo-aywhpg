@@ -1,0 +1,179 @@
+<div class="box-body">
+  <form novalidate #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label>First name</label>
+        <input
+          type="drop-down"
+          class="form-control"
+          name="firstName"
+          ngModel
+          #firstNameRef="ngModel"
+          required
+          [class.ctrl-error]="
+            firstNameRef.touched && firstNameRef?.errors?.required
+          "
+          minlength="3"
+          maxlength="50"
+        />
+        <div
+          *ngIf="firstNameRef.touched && firstNameRef?.errors?.required"
+          class="error-message"
+        >
+          The first name is required.
+        </div>
+        <div
+          class="error-message"
+          *ngIf="firstNameRef.touched && firstNameRef?.errors?.minlength"
+        >
+          You should enter minimum
+          {{ firstNameRef?.errors?.minlength.requiredLength }}
+          characters into first name, but you entered only
+          {{ firstNameRef?.errors?.minlength.actualLength }} character(s).
+        </div>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label>Last name</label>
+        <input
+          type="drop-down"
+          class="form-control"
+          name="lastName"
+          ngModel
+          #lastNameRef="ngModel"
+          required
+          [class.ctrl-error]="
+          lastNameRef.touched && lastNameRef?.errors?.required
+          "
+          minlength="3"
+          maxlength="50"
+        />
+        <div
+          *ngIf="lastNameRef.touched && lastNameRef?.errors?.required"
+          class="error-message"
+        >
+          The last name is required.
+        </div>
+        <div
+          class="error-message"
+          *ngIf="lastNameRef.touched && lastNameRef?.errors?.minlength"
+        >
+          You should enter minimum
+          {{ lastNameRef?.errors?.minlength.requiredLength }}
+          characters into first name, but you entered only
+          {{ lastNameRef?.errors?.minlength.actualLength }} character(s).
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <label>Date of birth</label>
+        <input
+          type="date"
+          class="form-control"
+          name="firstName"
+          ngModel
+          #firstNameRef="ngModel"
+          required
+          [class.ctrl-error]="
+            firstNameRef.touched && firstNameRef?.errors?.required
+          "
+          minlength="3"
+          maxlength="50"
+        />
+        <div
+          *ngIf="firstNameRef.touched && firstNameRef?.errors?.required"
+          class="error-message"
+        >
+          Date of birth is required.
+        </div>
+        <div
+          class="error-message"
+          *ngIf="firstNameRef.touched && firstNameRef?.errors?.minlength"
+        >
+          You should enter minimum
+          {{ firstNameRef?.errors?.minlength.requiredLength }}
+          characters into first name, but you entered only
+          {{ firstNameRef?.errors?.minlength.actualLength }} character(s).
+        </div>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label>Gender</label>
+        <input
+          type="text"
+          class="form-control"
+          name="gender"
+          ngModel
+          #lastNameRef="ngModel"
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <div class="form-group">
+          <label>Marital status</label>
+          <div>
+            <label class="check-label">
+              <input
+                type="radio"
+                name="gender"
+                value="status"
+                ngModel
+                #genderRef="ngModel"
+              /><i class="blue"></i> Single
+            </label>
+            <div class="spacer"></div>
+            <label class="check-label">
+              <input
+                type="radio"
+                name="gender"
+                value="status"
+                ngModel
+                #genderRef="ngModel"
+              /><i class="blue"></i> Married
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          ngModel
+          #emailRef="ngModel"
+        />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        ngModel
+        #emailRef="ngModel"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-secondary"
+      [disabled]="formRef.invalid"
+    >
+      Submit
+    </button>
+    <button
+      type="submit"
+      class="btn btn-secondary"
+      [disabled]="formRef.invalid"
+    >
+      Cancel
+    </button>
+  </form>
+</div>
